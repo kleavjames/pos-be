@@ -2,8 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import type { Prisma } from '../generated/prisma/client.js';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { CreateCategoryDto } from './dto/create-category.dto.js';
-import { CreateCategoryOptionGroupDto } from './dto/create-category-option-group.dto.js';
 import { UpdateCategoryDto } from './dto/update-category.dto.js';
+import { CreateCategoryOptionGroupDto } from './dto/create-category-option.dto.js';
 
 const categoryInclude = {
   optionGroups: {
