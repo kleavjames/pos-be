@@ -48,9 +48,12 @@ export class CategoryService {
     });
   }
 
-  findAll(businessId?: string) {
+  findAll(businessId?: string, name?: string) {
     return this.prisma.category.findMany({
-      where: businessId ? { businessId } : undefined,
+      where: {
+        businessId,
+        name: name ? { contains: name, mode: 'insensitive' } : undefined,
+      },
       orderBy: [{ updatedAt: 'desc' }],
       include: categoryInclude,
     });

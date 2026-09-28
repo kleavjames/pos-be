@@ -25,8 +25,11 @@ export class CategoryController {
   }
 
   @Get()
-  findAll(@Query('businessId') businessId?: string) {
-    return this.categoryService.findAll(businessId);
+  findAll(
+    @Query('businessId') businessId?: string,
+    @Query('name') name?: string,
+  ) {
+    return this.categoryService.findAll(businessId, name);
   }
 
   @Get(':id')
@@ -35,7 +38,10 @@ export class CategoryController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCategoryDto: UpdateCategoryDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateCategoryDto: UpdateCategoryDto,
+  ) {
     return this.categoryService.update(id, updateCategoryDto);
   }
 
