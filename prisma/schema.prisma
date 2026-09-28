@@ -76,7 +76,6 @@ model Category {
   businessId  String
   name        String
   pricingMode CategoryPricingMode @default(VARIANT)
-  sortOrder   Int                 @default(0)
   isActive    Boolean             @default(true)
   createdAt   DateTime            @default(now())
   updatedAt   DateTime            @updatedAt
@@ -170,11 +169,11 @@ model OrderStatus {
   isTerminal Boolean @default(false)
   isActive   Boolean @default(true)
 
-  orders            Order[]
-  transitionsFrom   OrderStatusTransition[] @relation("FromStatus")
-  transitionsTo     OrderStatusTransition[] @relation("ToStatus")
-  historyAsFrom     OrderStatusHistory[]    @relation("HistoryFromStatus")
-  historyAsTo       OrderStatusHistory[]    @relation("HistoryToStatus")
+  orders          Order[]
+  transitionsFrom OrderStatusTransition[] @relation("FromStatus")
+  transitionsTo   OrderStatusTransition[] @relation("ToStatus")
+  historyAsFrom   OrderStatusHistory[]    @relation("HistoryFromStatus")
+  historyAsTo     OrderStatusHistory[]    @relation("HistoryToStatus")
 }
 
 model OrderStatusTransition {

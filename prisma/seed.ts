@@ -8,7 +8,12 @@ const prisma = new PrismaClient({ adapter });
 const ORDER_STATUSES = [
   { code: 'PENDING', label: 'Pending', sortOrder: 1, isTerminal: false },
   { code: 'PREPPING', label: 'Prepping', sortOrder: 2, isTerminal: false },
-  { code: 'FOR_DELIVERY', label: 'For Delivery', sortOrder: 3, isTerminal: false },
+  {
+    code: 'FOR_DELIVERY',
+    label: 'For Delivery',
+    sortOrder: 3,
+    isTerminal: false,
+  },
   {
     code: 'PENDING_PAYMENT',
     label: 'Pending Payment',
@@ -97,7 +102,6 @@ async function seedDemoBusiness() {
       businessId: business.id,
       name: 'Coffee',
       pricingMode: 'VARIANT',
-      sortOrder: 1,
       optionGroups: {
         create: [
           {
@@ -144,7 +148,6 @@ async function seedDemoBusiness() {
       businessId: business.id,
       name: 'Matcha Series',
       pricingMode: 'VARIANT',
-      sortOrder: 2,
       optionGroups: {
         create: [
           {
@@ -191,7 +194,6 @@ async function seedDemoBusiness() {
       businessId: business.id,
       name: 'Rice Bowls',
       pricingMode: 'SINGLE',
-      sortOrder: 3,
       optionGroups: {
         create: [
           {
