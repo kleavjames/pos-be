@@ -1,5 +1,5 @@
 import type { CategoryPricingMode } from '../../generated/prisma/client.js';
-import { CreateCategoryOptionGroupDto } from './create-category-option-group.dto.js';
+import { CreateCategoryOptionGroupDto } from '../option-group/dto/create-category-option-group.dto.js';
 
 export class CreateCategoryDto {
   name!: string;
