@@ -3,7 +3,8 @@ import type { Prisma } from '../generated/prisma/client.js';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { CreateCategoryDto } from './dto/create-category.dto.js';
 import { UpdateCategoryDto } from './dto/update-category.dto.js';
-import { CreateCategoryOptionGroupDto } from './dto/create-category-option.dto.js';
+import { CreateCategoryOptionGroupDto } from './option-group/dto/create-category-option-group.dto.js';
+import { mapCategoryOptionsForCreate } from './shared/map-category-options.js';
 
 const categoryInclude = {
   optionGroups: {
@@ -19,13 +20,8 @@ function mapOptionGroups(optionGroups: CreateCategoryOptionGroupDto[]) {
   return optionGroups.map((group) => ({
     name: group.name,
     type: group.type,
-    options: {
-      create: group.options.map((option, optionIndex) => ({
-        name: option.name,
-        defaultPrice: option.defaultPrice ?? 0,
-        sortOrder: option.sortOrder ?? optionIndex,
-      })),
-    },
+    sortOrder: group.sortOrder,
+    options: mapCategoryOptionsForCreate(group.options),
   }));
 }
 

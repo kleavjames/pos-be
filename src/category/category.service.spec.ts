@@ -99,10 +99,21 @@ describe('CategoryService', () => {
               {
                 name: 'Size',
                 type: 'SERVING_VARIANT',
+                sortOrder: undefined,
                 options: {
                   create: [
-                    { name: 'Small', defaultPrice: 0, sortOrder: 0 },
-                    { name: 'Large', defaultPrice: 2, sortOrder: 1 },
+                    {
+                      name: 'Small',
+                      defaultPrice: 0,
+                      sortOrder: 0,
+                      isActive: true,
+                    },
+                    {
+                      name: 'Large',
+                      defaultPrice: 2,
+                      sortOrder: 1,
+                      isActive: true,
+                    },
                   ],
                 },
               },
